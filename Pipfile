@@ -9,6 +9,7 @@ format = "black ."
 typecheck = "mypy ."
 
 [packages]
+numpy = "*"
 
 [dev-packages]
 pytest = "*"
