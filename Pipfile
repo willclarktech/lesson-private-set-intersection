@@ -15,6 +15,7 @@ numpy = "*"
 pytest = "*"
 black = "==20.8b1"
 mypy = "*"
+pylint = "*"
 
 [requires]
 python_version = "3.9"
