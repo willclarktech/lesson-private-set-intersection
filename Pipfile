@@ -6,6 +6,7 @@ name = "pypi"
 [scripts]
 test = "pytest"
 format = "black ."
+lint = "pylint private_set_intersection.py test_private_set_intersection.py"
 typecheck = "mypy ."
 
 [packages]
