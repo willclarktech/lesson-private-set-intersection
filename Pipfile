@@ -5,9 +5,9 @@ name = "pypi"
 
 [scripts]
 test = "pytest"
-format = "black ."
-lint = "pylint private_set_intersection.py test_private_set_intersection.py"
-typecheck = "mypy ."
+format = "black code"
+lint = "pylint code/private_set_intersection.py code/test_private_set_intersection.py"
+typecheck = "mypy code"
 
 [packages]
 numpy = "*"
