@@ -3,7 +3,7 @@ from math import ceil
 import secrets
 from typing import List, Tuple
 
-DEFAULT_BIT_LENGTH = 2048 # For the secret exponents
+DEFAULT_BIT_LENGTH = 2048  # For the secret exponents
 
 
 def hash_number(n: int) -> int:
@@ -44,7 +44,7 @@ class PSIAgent:
 class PSIServer(PSIAgent):
     def handle_request(
         self, client_intermediate_keys: List[int]
-    ) -> Tuple[List[int], List[int]]: # (client_keys, server_intermediate_keys)
+    ) -> Tuple[List[int], List[int]]:  # (client_keys, server_intermediate_keys)
         client_keys = [self.exponentiate(n) for n in client_intermediate_keys]
         server_intermediate_keys = self.prepare_intermediate_keys()
         return client_keys, server_intermediate_keys
