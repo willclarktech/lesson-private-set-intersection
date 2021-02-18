@@ -30,7 +30,7 @@ If you aren’t using poetry, you can install the dependencies via the `requirem
 pip install -r requirements.txt
 ```
 
-Once you’ve installed the dependencies, you should be able to run the tests and see that they pass:
+Once you’ve installed the dependencies, you should be able to run the tests and see that they fail:
 
 ```sh
 pytest
@@ -38,7 +38,7 @@ pytest
 
 ## Coding exercise
 
-Your task is to fill out the functionality for the interfaces defined in `./code/private_set_intersection.stub.py`. You can run the tests against your own code by renaming this file to `./code/private_set_intersection.py` and running `pytest`, but you might want to keep a copy of the file which currently exists at that location because it contains a valid solution.
+Your task is to fill out the functionality for the interfaces defined in `./code/private_set_intersection.py`. You can run the tests against your code by running `pytest`.
 
 Be aware that the test is just a simple check that you’re heading in the right direction, it’s not supposed to be particularly robust. Write more tests if you find it helpful!
 
