@@ -3,7 +3,7 @@ from math import ceil
 import secrets
 from typing import List, Tuple
 
-DEFAULT_BIT_LENGTH = 2048
+DEFAULT_BIT_LENGTH = 2048 # For the secret exponents
 
 
 def hash_number(n: int) -> int:
@@ -13,21 +13,17 @@ def hash_number(n: int) -> int:
 
 
 class PSIAgent:
-    """
-    Base class for PSI agents.
-    """
-
     def __init__(
         self, initial_set: List[int], p: int, bit_length: int = DEFAULT_BIT_LENGTH
     ) -> None:
         self.set = initial_set
         self.p = p
         key_space = 2 ** bit_length
-        self.secret = secrets.randbelow(key_space + 1)
+        self.secret = secrets.randbelow(key_space)
 
     def is_generator(self, g: int) -> bool:
         p = self.p
-        l = len({pow(g, i, p) for i in range(1, p)})
+        l = len(set([pow(g, i, p) for i in range(1, p)]))
         return l == p - 1
 
     def exponentiate(self, g: int) -> int:
@@ -46,23 +42,15 @@ class PSIAgent:
 
 
 class PSIServer(PSIAgent):
-    """
-    PSI server class. Handles requests from clients.
-    """
-
     def handle_request(
         self, client_intermediate_keys: List[int]
-    ) -> Tuple[List[int], List[int]]:
+    ) -> Tuple[List[int], List[int]]: # (client_keys, server_intermediate_keys)
         client_keys = [self.exponentiate(n) for n in client_intermediate_keys]
         server_intermediate_keys = self.prepare_intermediate_keys()
         return client_keys, server_intermediate_keys
 
 
 class PSIClient(PSIAgent):
-    """
-    PSI client class. Handles responses from servers.
-    """
-
     def handle_response(
         self, client_keys: List[int], server_intermediate_keys: List[int]
     ) -> List[int]:
