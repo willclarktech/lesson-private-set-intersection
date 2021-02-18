@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "lesson-private-set-intersection"
+version = "0.0.0"
+description = "Code to accompany the PSI lesson for OpenMined’s Foundations course"
+authors = ["willclarktech <willclarktech@users.noreply.github.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.2"
+black = "^20.8b1"
+mypy = "^0.800"
+pylint = "^2.6.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
